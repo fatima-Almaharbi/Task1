@@ -1,0 +1,30 @@
+<h1 style="text-align: center;"> Students Marks </h1>
+
+
+<table class="table table-striped">
+
+    <thead>
+      <th> NAME</th>
+      <th> EMAIL </th>
+      <th> MARKS (out of 100)</th>
+      <th> PASS/FAIL</th>
+
+    </thead>
+
+  <tbody *ngFor="let item of Students">
+   <tr>
+    
+      <td>{{item.NAME}}</td>
+      <td>{{item.EMAIL}}</td>
+      <td [ngClass]="{'Green':item.MARKS>50,'Red':item.MARKS<50}">{{item.MARKS}}</td>
+      <td [ngClass]="{'backgroundRed':item.MARKS<50, 'backgroundGreen':item.MARKS>=50}">
+        <p *ngIf="item.MARKS<50">Fail</p>
+        <p *ngIf="item.MARKS>=50">Pass</p>
+
+      </td>
+    </tr>
+    
+  
+  </tbody>
+  </table>
+  
